@@ -19,14 +19,24 @@ export const signup = async (req, res) => {
     const newUser = new User({
       fullName,
       username,
-      gender,
       password,
+      gender,
       profilePic: gender == "male" ? boyProfilePic : girlProfilePic,
     });
 
     await newUser.save();
-  } catch (error) {}
-  res.send(error.message);
+
+    res.status(201).json({
+      _id: newUser._id,
+      fullName: newUser.fullName,
+      username: newUser.username,
+      gender: newUser.gender,
+      profilePic: newUser.profilePic,
+    });
+  } catch (error) {
+    console.log(`Internal issue`, error.message);
+    res.status(500).json({ error: "internal error" });
+  }
 };
 
 export const login = (req, res) => {
