@@ -15,7 +15,6 @@ app.use(express.json()); //from req.body
 app.use("/api/auth", authRoutes);
 
 // app.get("/", (req, res) => res.send("hello chandu"));
-
 app.listen(PORT, () => {
   connectToDB();
   console.log(`serve running at ${PORT}`);
