@@ -1,8 +1,11 @@
 import express from "express"; //package imports
 import dotenv from "dotenv";
 
-import connectToDB from "./db/connectToMongoDB.js"; //file imports
+//file imports
 import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from "./routes/message.routes.js";
+
+import connectToDB from "./db/connectToMongoDB.js";
 
 //variables
 const app = express();
@@ -13,6 +16,7 @@ app.use(express.json()); //from req.body
 
 //middewares
 app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 // app.get("/", (req, res) => res.send("hello chandu"));
 app.listen(PORT, () => {

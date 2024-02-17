@@ -1,0 +1,16 @@
+signup:POST
+http://localhost:5000/api/auth/signup
+{
+  "fullName":"a", "username":"c", "password":"a", "conformPassword":"a", "gender":"male" 
+  
+}
+POST
+http://localhost:5000/api/auth/login
+{
+   "username":"b",
+  "password":"a"
+}
+POST
+http://localhost:5000/api/auth/logout
+
+
