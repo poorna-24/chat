@@ -34,7 +34,7 @@ export const signup = async (req, res) => {
       profilePic: newUser.profilePic,
     });
   } catch (error) {
-    console.log(`Internal issue`, error.message);
+    console.log(`Internal issue in signup`, error.message);
     res.status(500).json({ error: "internal error" });
   }
 };
